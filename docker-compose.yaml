@@ -4,5 +4,6 @@ services:
   app:
     build: .
     container_name: micro-videos-python-app
+    platform: linux/amd64
     volumes:
       - .:/home/python/app
