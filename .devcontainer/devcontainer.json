@@ -18,20 +18,20 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"ms-python.vscode-pylance",
+				"ms-python.pylint",
+				"ms-python.python",
+				"ms-python.black-formatter",
 				"njpwerner.autodocstring",
 				"vivaxy.vscode-conventional-commits",
 				"batisteo.vscode-django",
 				"GitHub.vscode-pull-request-github",
 				"VisualStudioExptTeam.vscodeintellicode",
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
-				"ms-python.vscode-pylance",
-				"ms-python.pylint",
-				"ms-python.python",
 				"humao.rest-client",
 				"SonarSource.sonarlint-vscode",
 				"sourcery.sourcery",
-				"redhat.vscode-yaml",
-				"ms-python.black-formatter"
+				"redhat.vscode-yaml"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "zsh",

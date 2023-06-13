@@ -10,7 +10,8 @@ RUN apt update && apt install -y --no-install-recommends \
     gpg \
     gnupg \
     gpg-agent \
-    socat
+    socat \
+    openssh-client
 
 RUN useradd -ms /bin/bash python
 
@@ -34,5 +35,17 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 RUN echo 'fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src' >> ~/.zshrc
 RUN echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 RUN echo 'HISTFILE=/home/python/zsh/.zsh_history' >> ~/.zshrc
+
+# SSH Config
+RUN eval "$(ssh-agent -s)"
+RUN <<EOF
+    echo 'if [ -z "$SSH_AUTH_SOCK" ]; then
+    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+    if [ "$RUNNING_AGENT" = "0" ]; then
+            ssh-agent -s &> $HOME/.ssh/ssh-agent
+    fi
+    eval `cat $HOME/.ssh/ssh-agent`
+    fi' >> ~/.zshrc
+EOF
 
 CMD [ "tail", "-f", "/dev/null" ]
