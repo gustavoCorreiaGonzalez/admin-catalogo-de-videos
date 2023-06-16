@@ -47,5 +47,6 @@ RUN <<EOF
     eval `cat $HOME/.ssh/ssh-agent`
     fi' >> ~/.zshrc
 EOF
+RUN git config --global gpg.program /usr/bin/gpg  
 
 CMD [ "tail", "-f", "/dev/null" ]

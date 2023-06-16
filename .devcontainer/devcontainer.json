@@ -18,11 +18,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"ms-azuretools.vscode-docker",
 				"ms-python.vscode-pylance",
 				"ms-python.pylint",
 				"ms-python.python",
 				"ms-python.black-formatter",
-				"njpwerner.autodocstring",
 				"vivaxy.vscode-conventional-commits",
 				"batisteo.vscode-django",
 				"GitHub.vscode-pull-request-github",
